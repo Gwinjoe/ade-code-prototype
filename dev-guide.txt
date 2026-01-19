@@ -1,0 +1,19 @@
+ADE CODE — PROTOTYPE (STEP-BY-STEP DEVELOPER GUIDE)
+
+STEP 1: What You Are Building Build a simple clickable prototype (not a real app) that shows: How normal language can be encoded How hidden meaning can be decoded Using hard-coded rules For demo purposes only No production quality needed.
+
+STEP 2: Platform Choose ONE: Web app (React / Vue / similar) → preferred OR Android demo (Flutter) No backend required (or mock backend only).
+
+STEP 3: User Access (Demo Only) Create fake login buttons: Admin User No authentication, no passwords, no database.
+
+STEP 4: Screens to Build 4.1 Login Screen Two buttons: “Login as Admin” “Login as User” 4.2 Home Screen Show 4 buttons: Encode Message Decode Message Rules (Demo) Training (Demo) 4.3 Encode Message Screen Text box: “Write a normal sentence” Dropdown: Select rule set (Rule A, Rule B, Rule C) Button: Encode Output box: Show an ordinary-looking coded message Rules are hard-coded examples. 4.4 Decode Message Screen Text box: Paste coded message Button: Decode Output: Hidden meaning Short explanation of how it was decoded 4.5 Rules (Demo) Screen List of 3–5 sample rules Each rule has: Toggle ON/OFF Short text description Rules do not change real logic deeply — demo only 4.6 Training (Demo) Screen 2–3 info cards explaining: What Ade Code is How encoding works How decoding works Show 1–2 example messages No tests, no certification
+
+STEP 5: Logic Rules (VERY SIMPLE) All rules are hard-coded No AI No learning No external APIs Example rule types: Replace specific words Change meaning based on sentence position Predefined interpretation table
+
+STEP 6: Data Handling No real database Use mock data or local state only Messages do not need to persist after refresh
+
+STEP 7: What NOT to Build Do NOT include: AI Encryption Real security Backend architecture User management Compliance or legal systems
+
+STEP 8: Timeline 7 days maximum
+
+STEP 9: Deliverables Clickable prototype (web link or APK) All screens working Demo-ready flow
