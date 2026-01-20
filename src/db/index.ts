@@ -3,16 +3,17 @@ import { rxdbCollectionOptions } from "@tanstack/rxdb-db-collection";
 import { collectionsInstance } from "./collection";
 
 const adeCodeDB = await collectionsInstance();
-
 const rulesCollection = createCollection(
   rxdbCollectionOptions({
     rxCollection: adeCodeDB.rules,
+    startSync: true,
   }),
 );
 
 const sessionCollection = createCollection(
   rxdbCollectionOptions({
     rxCollection: adeCodeDB.session,
+    startSync: true,
   }),
 );
 
@@ -24,7 +25,7 @@ export async function getDb() {
 
   const rulesCount = await adeCodeDB.rules.count().exec();
   if (rulesCount === 0) {
-    await adeCodeDB.rules.bulkInsert([
+    rulesCollection.insert([
       {
         id: crypto.randomUUID(),
         label: "Keyword Swap",
@@ -40,6 +41,7 @@ export async function getDb() {
         type: "marker",
         enabled: true,
         marker: "-- noted",
+        position: "start",
         meaning: "Message confirmed",
       },
       {
@@ -53,5 +55,8 @@ export async function getDb() {
     ]);
   }
 
+  console.log(
+    `These are the found collections and count from index.ts: ${rulesCollection.size} matches ${rulesCount}`,
+  );
   return { adeCodeDB, sessionCollection, rulesCollection };
 }

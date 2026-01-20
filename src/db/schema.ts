@@ -15,6 +15,7 @@ export const ruleSchema: RxJsonSchema<Rule> = {
     trigger: { type: "string" },
     replacement: { type: "string" },
     marker: { type: "string" },
+    position: { type: "string" },
     phrase: { type: "string" },
     meaning: { type: "string" },
   },
@@ -47,7 +48,7 @@ export const sessionSchema: RxJsonSchema<Session> = {
 //   meaning: string;
 // }
 //
-// export const RuleJsonSchema = {
+// export const ruleSchema = {
 //   title: "Rule",
 //   type: "object",
 //   version: 0,
@@ -57,6 +58,7 @@ export const sessionSchema: RxJsonSchema<Session> = {
 //     id: {
 //       type: "string",
 //       description: "A unique identifier for the rule.",
+//       maxLength: 200,
 //     },
 //     label: {
 //       type: "string",

@@ -15,6 +15,11 @@ import { Route as UserRulesRouteImport } from './routes/user/rules'
 import { Route as UserHomeRouteImport } from './routes/user/home'
 import { Route as UserEncodeRouteImport } from './routes/user/encode'
 import { Route as UserDecodeRouteImport } from './routes/user/decode'
+import { Route as AdminTrainingRouteImport } from './routes/admin/training'
+import { Route as AdminRulesRouteImport } from './routes/admin/rules'
+import { Route as AdminHomeRouteImport } from './routes/admin/home'
+import { Route as AdminEncodeRouteImport } from './routes/admin/encode'
+import { Route as AdminDecodeRouteImport } from './routes/admin/decode'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,9 +51,39 @@ const UserDecodeRoute = UserDecodeRouteImport.update({
   path: '/user/decode',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminTrainingRoute = AdminTrainingRouteImport.update({
+  id: '/admin/training',
+  path: '/admin/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRulesRoute = AdminRulesRouteImport.update({
+  id: '/admin/rules',
+  path: '/admin/rules',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminHomeRoute = AdminHomeRouteImport.update({
+  id: '/admin/home',
+  path: '/admin/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEncodeRoute = AdminEncodeRouteImport.update({
+  id: '/admin/encode',
+  path: '/admin/encode',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDecodeRoute = AdminDecodeRouteImport.update({
+  id: '/admin/decode',
+  path: '/admin/decode',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin/decode': typeof AdminDecodeRoute
+  '/admin/encode': typeof AdminEncodeRoute
+  '/admin/home': typeof AdminHomeRoute
+  '/admin/rules': typeof AdminRulesRoute
+  '/admin/training': typeof AdminTrainingRoute
   '/user/decode': typeof UserDecodeRoute
   '/user/encode': typeof UserEncodeRoute
   '/user/home': typeof UserHomeRoute
@@ -57,6 +92,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin/decode': typeof AdminDecodeRoute
+  '/admin/encode': typeof AdminEncodeRoute
+  '/admin/home': typeof AdminHomeRoute
+  '/admin/rules': typeof AdminRulesRoute
+  '/admin/training': typeof AdminTrainingRoute
   '/user/decode': typeof UserDecodeRoute
   '/user/encode': typeof UserEncodeRoute
   '/user/home': typeof UserHomeRoute
@@ -66,6 +106,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin/decode': typeof AdminDecodeRoute
+  '/admin/encode': typeof AdminEncodeRoute
+  '/admin/home': typeof AdminHomeRoute
+  '/admin/rules': typeof AdminRulesRoute
+  '/admin/training': typeof AdminTrainingRoute
   '/user/decode': typeof UserDecodeRoute
   '/user/encode': typeof UserEncodeRoute
   '/user/home': typeof UserHomeRoute
@@ -76,6 +121,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin/decode'
+    | '/admin/encode'
+    | '/admin/home'
+    | '/admin/rules'
+    | '/admin/training'
     | '/user/decode'
     | '/user/encode'
     | '/user/home'
@@ -84,6 +134,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin/decode'
+    | '/admin/encode'
+    | '/admin/home'
+    | '/admin/rules'
+    | '/admin/training'
     | '/user/decode'
     | '/user/encode'
     | '/user/home'
@@ -92,6 +147,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin/decode'
+    | '/admin/encode'
+    | '/admin/home'
+    | '/admin/rules'
+    | '/admin/training'
     | '/user/decode'
     | '/user/encode'
     | '/user/home'
@@ -101,6 +161,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminDecodeRoute: typeof AdminDecodeRoute
+  AdminEncodeRoute: typeof AdminEncodeRoute
+  AdminHomeRoute: typeof AdminHomeRoute
+  AdminRulesRoute: typeof AdminRulesRoute
+  AdminTrainingRoute: typeof AdminTrainingRoute
   UserDecodeRoute: typeof UserDecodeRoute
   UserEncodeRoute: typeof UserEncodeRoute
   UserHomeRoute: typeof UserHomeRoute
@@ -152,11 +217,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UserDecodeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/training': {
+      id: '/admin/training'
+      path: '/admin/training'
+      fullPath: '/admin/training'
+      preLoaderRoute: typeof AdminTrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/rules': {
+      id: '/admin/rules'
+      path: '/admin/rules'
+      fullPath: '/admin/rules'
+      preLoaderRoute: typeof AdminRulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/home': {
+      id: '/admin/home'
+      path: '/admin/home'
+      fullPath: '/admin/home'
+      preLoaderRoute: typeof AdminHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/encode': {
+      id: '/admin/encode'
+      path: '/admin/encode'
+      fullPath: '/admin/encode'
+      preLoaderRoute: typeof AdminEncodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/decode': {
+      id: '/admin/decode'
+      path: '/admin/decode'
+      fullPath: '/admin/decode'
+      preLoaderRoute: typeof AdminDecodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminDecodeRoute: AdminDecodeRoute,
+  AdminEncodeRoute: AdminEncodeRoute,
+  AdminHomeRoute: AdminHomeRoute,
+  AdminRulesRoute: AdminRulesRoute,
+  AdminTrainingRoute: AdminTrainingRoute,
   UserDecodeRoute: UserDecodeRoute,
   UserEncodeRoute: UserEncodeRoute,
   UserHomeRoute: UserHomeRoute,

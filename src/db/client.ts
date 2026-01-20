@@ -29,14 +29,14 @@ export async function initDB() {
     });
 
     // Always remove existing database in development
-    if (import.meta.env.DEV) {
-      try {
-        console.log("initDB: Removing existing database (dev mode)");
-        await removeRxDatabase("appdb", storage);
-      } catch (e) {
-        console.log("initDB: No existing database to remove");
-      }
-    }
+    // if (import.meta.env.DEV) {
+    //   try {
+    //     await removeRxDatabase("adeCodeDB", storage);
+    //     console.log("initDB: Removing existing database (dev mode)");
+    //   } catch (e) {
+    //     console.log("initDB: No existing database to remove");
+    //   }
+    // }
 
     dbInstance = await createRxDatabase({
       name: "adeCodeDB",

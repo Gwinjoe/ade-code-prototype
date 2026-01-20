@@ -10,12 +10,14 @@ export function useRules(): Rule[] {
     getDb().then(({ adeCodeDB, sessionCollection, rulesCollection }) => {
       sub = adeCodeDB.rules.find().$.subscribe((docs: any[]) => {
         console.log("found rules");
+        console.log("rules Collection: ", rulesCollection.values());
         setRules(docs.map((d) => d.toJSON()));
       });
     });
     return () => sub?.unsubscribe();
   }, []);
 
+  console.log(rules);
   return rules;
 }
 
